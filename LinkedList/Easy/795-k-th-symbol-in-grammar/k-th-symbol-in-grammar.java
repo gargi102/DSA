@@ -1,15 +1,17 @@
 class Solution {
     public int kthGrammar(int n, int k) {
-        if(n==1){
-            return 0;
-        }
-      int mid = (int)Math.pow(2,n-1)/2; 
-
-        if(k<=mid){
-            return kthGrammar(n-1,k);
-        }
-        else{
-            return 1 - kthGrammar(n - 1, k - mid);
-        }
+        int l=1,g=0;
+        int b = (int) Math.pow(2, (n - 1));
+        if(n==1&&k==1)
+        {return g=0;}
+       while(l<b)
+        {int m=(l+b)/2;
+        if(m>=k)
+        {b=m;}
+        else if(m<k)
+        {g=1-g;
+        l=m+1;}
+          }  return g;
+ 
     }
-}
+};
